@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rspamd
+  namespace: spamprotect
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rspamd
+  template:
+    metadata:
+      labels:
+        app: rspamd
+    spec:
+      containers:
+      - name: rspamd
+        image: rspamd/rspamd:latest
+        ports:
+        - containerPort: 11333
+          name: rspamc
+        - containerPort: 11334
+          name: webui
+        volumeMounts:
+        - name: rspamd-config
+          mountPath: /etc/rspamd
+      volumes:
+      - name: rspamd-config
+        hostPath:
+          path: /mnt/hdd/spamprotect/rspamdconfig/
+          type: DirectoryOrCreate
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: rspamd
+  namespace: spamprotect
+spec:
+  selector:
+    app: rspamd
+  ports:
+  - name: rspamc
+    port: 11333
+    targetPort: 11333
+  - name: webui
+    port: 11334
+    targetPort: 11334
