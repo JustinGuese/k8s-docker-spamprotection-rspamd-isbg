@@ -1,7 +1,7 @@
 FROM python:3.13-alpine
 
 # Install ISBG + dependencies
-RUN apk add --no-cache rspamc tzdata
+RUN apk add --no-cache rspamd-client
 RUN pip3 install isbg
 
 
