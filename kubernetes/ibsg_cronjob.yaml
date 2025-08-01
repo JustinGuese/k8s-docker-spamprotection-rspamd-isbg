@@ -13,6 +13,7 @@ spec:
           containers:
           - name: isbg
             image: guestros/k8s-docker-spamprotection-rspamd-isbg:latest
+            imagePullPolicy: Always
             envFrom:
             - secretRef:
                 name: isbg-credentials
