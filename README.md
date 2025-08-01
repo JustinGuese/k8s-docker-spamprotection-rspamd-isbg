@@ -2,6 +2,11 @@
 
 Selfhosted setup to filter an IMAP inbox using common rspamd rules and smart bayesian learning using isbg
 
+[![Build and Push Multi-Arch Docker Images](https://github.com/JustinGuese/k8s-docker-spamprotection-rspamd-isbg/actions/workflows/multiarch.yaml/badge.svg)](https://github.com/JustinGuese/k8s-docker-spamprotection-rspamd-isbg/actions/workflows/multiarch.yaml)
+
+Github: https://github.com/JustinGuese/k8s-docker-spamprotection-rspamd-isbg
+Dockerhub: https://hub.docker.com/repository/docker/guestros/k8s-docker-spamprotection-rspamd-isbg/general
+
 ## install
 
 manually create the secret
