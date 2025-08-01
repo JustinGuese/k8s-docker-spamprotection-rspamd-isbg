@@ -9,4 +9,4 @@ RUN pip3 install isbg
 COPY train.sh /train.sh
 RUN chmod +x /train.sh
 
-ENTRYPOINT ["/train.sh"]
+ENTRYPOINT ["sh", "/train.sh"]
